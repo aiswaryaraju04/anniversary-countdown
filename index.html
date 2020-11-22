@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Anniversary</title>
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<audio src="mp3/secret base ~君がくれたもの~.mp3" autoplay loop></audio>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments"></span><br />
+				<span class="space"/><span class="comments">Babe,do you know how much I love you?</span><br />
+				<span class="space"/><span class="comments">It's so high that I can't even explain it.</span><br />
+				<span class="space"/><span class="comments">You're always my strength as well as my weekness.</span><br />
+				<span class="comments">I LOVE YOU FOREVER MAH HUBBY</span><br />
+				<span class="space"/><span class="comments">It's been so long since we've met,</span><br />
+				<span class="space"/><span class="comments">Really it hurts!</span><br />
+				<span class="space"/><span class="comments">But thinking about the moment which we are meeting soon</span><br />
+				<span class="comments">Gives me unexplainable happiness!!</span><br />
+				<span class="space"/><span class="comments">Love you babes,love you soo much!!</span><br />
+				
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						Babe, I have fallen in love with you for
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Love u forever and ever.<br/>
+						<div class="signature">- Aiswarya</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2019, 10, 25);
+		together.setHours(23);
+		together.setMinutes(20);
+		together.setSeconds(04);
+		together.setMilliseconds(23);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 1000);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
